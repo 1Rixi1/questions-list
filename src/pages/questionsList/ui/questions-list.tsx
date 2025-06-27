@@ -38,6 +38,7 @@ export const QuestionsList = () => {
         ({ title, shortAnswer, imageSrc, rate, complexity, id }) => (
           <QuestionRow
             key={id}
+            id={id}
             title={title}
             shortAnswer={shortAnswer}
             imageSrc={imageSrc}

@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+}
+.content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.content.collapsed {
+  mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+}
+
+.toggle {
+  margin: 8px auto 0;
+  background: none;
+  border: none;
+  color: #7b3fed;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

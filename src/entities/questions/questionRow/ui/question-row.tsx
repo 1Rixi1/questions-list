@@ -1,9 +1,11 @@
 import { useState } from "react";
 
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
 type Props = {
   title: string;
+  id: number;
   shortAnswer?: string;
   imageSrc?: string;
   rate?: number;
@@ -12,6 +14,7 @@ type Props = {
 
 export const QuestionRow = ({
   title,
+  id,
   shortAnswer,
   imageSrc,
   rate,
@@ -39,7 +42,7 @@ export const QuestionRow = ({
           {imageSrc && <img src={imageSrc} alt="image question" />}
 
           <p>{shortAnswer}</p>
-          <p>Подробнее</p>
+          <Link to={`${id}`}>Подробнее</Link>
         </>
       )}
     </div>
