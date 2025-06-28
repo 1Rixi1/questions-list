@@ -8,7 +8,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Chip = ({ children, selected, ...rest }: Props) => {
   return (
-    <button {...rest} className={selected ? styles.selected : ""}>
+    <button {...rest} className={selected ? styles.selected : ""} type="button">
       {children}
     </button>
   );

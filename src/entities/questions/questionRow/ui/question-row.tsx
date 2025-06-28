@@ -27,24 +27,51 @@ export const QuestionRow = ({
   };
 
   return (
-    <div>
-      <h1 onClick={handleToggleClick} className={styles.title}>
-        {title}
-      </h1>
+    <article className={styles.row}>
+      <header className={styles.header}>
+        <h2 className={styles.title} onClick={handleToggleClick}>
+          {title}
+        </h2>
+      </header>
 
       {show && (
         <>
-          <div>
-            <span>Рейтинг {rate}</span>
-            <span>Сложность {complexity}</span>
-          </div>
+          <section className={styles.section} aria-live="polite">
+            <dl className={styles.meta}>
+              <div className={styles.metaItem}>
+                <dt className={styles.term}>Рейтинг:</dt>
+                <dd className={styles.desc}>{rate}</dd>
+              </div>
+              <div className={styles.metaItem}>
+                <dt className={styles.term}>Сложность:</dt>
+                <dd className={styles.desc}>{complexity}</dd>
+              </div>
+            </dl>
 
-          {imageSrc && <img src={imageSrc} alt="image question" />}
+            {imageSrc && (
+              <figure className={styles.figure}>
+                <img
+                  className={styles.img}
+                  src={imageSrc}
+                  alt="image question"
+                />
+              </figure>
+            )}
 
-          <p>{shortAnswer}</p>
-          <Link to={`${id}`}>Подробнее</Link>
+            {shortAnswer && (
+              <p
+                className={styles.shortAnswer}
+                dangerouslySetInnerHTML={{ __html: shortAnswer }}
+              />
+            )}
+          </section>
+          <nav className={styles.nav}>
+            <Link className={styles.more} to={`${id}`}>
+              Подробнее
+            </Link>
+          </nav>
         </>
       )}
-    </div>
+    </article>
   );
 };

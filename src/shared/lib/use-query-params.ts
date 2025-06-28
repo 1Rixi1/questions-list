@@ -17,19 +17,46 @@ export const useQueryParams = () => {
   };
 
   const update = (key: keyof Params, currentValue?: string) => {
-    const url = new URLSearchParams(searchParams);
+    setSearchParams(
+      (prev) => {
+        const url = new URLSearchParams(prev);
 
-    if (!currentValue) {
-      url.delete(key);
-    } else {
-      url.set(key, currentValue);
-    }
+        if (!currentValue) {
+          url.delete(key);
+        } else {
+          url.set(key, currentValue);
+        }
 
-    if (key !== "page") {
-      url.set("page", "1");
-    }
+        if (key !== "page") {
+          url.set("page", "1");
+        }
+        return url;
+      },
 
-    setSearchParams(url, { replace: true });
+      { replace: true }
+    );
+  };
+
+  const setTitle = (currentValue?: string) => {
+    setSearchParams(
+      (prev) => {
+        const url = new URLSearchParams(prev);
+
+        url.delete("specialization");
+        url.delete("skills");
+
+        if (!currentValue) {
+          url.delete("title");
+        } else {
+          url.set("title", currentValue);
+        }
+
+        url.set("page", "1");
+
+        return url;
+      },
+      { replace: true }
+    );
   };
 
   const page = getKey("page");
@@ -40,13 +67,12 @@ export const useQueryParams = () => {
   const title = getKey("title");
 
   const setPage = (currentValue: string) => update("page", currentValue);
-  const setSpecialization = (currentValue: string) =>
+  const setSpecialization = (currentValue?: string) =>
     update("specialization", currentValue);
-  const setSkills = (currentValue: string) => update("skills", currentValue);
+  const setSkills = (currentValue?: string) => update("skills", currentValue);
   const setRate = (currentValue: string) => update("rate", currentValue);
   const setComplexity = (currentValue: string) =>
     update("complexity", currentValue);
-  const setTitle = (currentValue: string) => update("title", currentValue);
 
   return {
     page,

@@ -43,22 +43,25 @@ export const ChipSelect = ({
   };
 
   return (
-    <div>
-      <h3>{title}</h3>
+    <fieldset>
+      <legend>{title}</legend>
 
       {visibleOptions.map(({ id, title }) => (
         <Chip
           key={id}
           selected={arrValues.includes(String(id))}
           onClick={() => handleClickChip(id)}
+          role="checkbox"
+          aria-checked={arrValues.includes(String(id))}
+          aria-label={title}
         >
           {title}
         </Chip>
       ))}
 
-      <button onClick={handleClickToggle}>
+      <button onClick={handleClickToggle} type="button">
         {show ? "Скрыть" : "Показать все"}
       </button>
-    </div>
+    </fieldset>
   );
 };

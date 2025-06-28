@@ -32,21 +32,26 @@ export const QuestionDetails = () => {
       <button onClick={() => navigate(-1)}>Назад</button>
 
       <div>
-        <h3>{question.title}</h3>
-        <p>{question.description}</p>
+        {question.imageSrc && (
+          <img src={question.imageSrc} alt="imageDetails" />
+        )}
+        <div>
+          <h3>{question.title}</h3>
+          <p>{question.description}</p>
+        </div>
       </div>
 
       {question.shortAnswer && (
         <div>
           <h4>Краткий ответ</h4>
-          <div dangerouslySetInnerHTML={{ __html: question.shortAnswer }} />
+          <p dangerouslySetInnerHTML={{ __html: question.shortAnswer }} />
         </div>
       )}
       {question.longAnswer && (
         <div>
           <h4>Развёрнутый ответ</h4>
           <Collapsible collapsedHeight={220}>
-            <div dangerouslySetInnerHTML={{ __html: question.longAnswer }} />
+            <p dangerouslySetInnerHTML={{ __html: question.longAnswer }} />
           </Collapsible>
         </div>
       )}

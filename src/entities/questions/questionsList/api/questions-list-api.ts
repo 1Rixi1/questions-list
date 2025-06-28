@@ -14,10 +14,13 @@ export const questionsListApi = baseApi.injectEndpoints({
         skills,
         rate,
         complexity,
+        title,
       }) => {
         const params: Record<string, unknown> = {
           page,
         };
+
+        params.skillFilterMode = "ANY";
 
         if (limit !== undefined) {
           params.limit = limit;
@@ -34,6 +37,9 @@ export const questionsListApi = baseApi.injectEndpoints({
         }
         if (complexity !== undefined) {
           params.complexity = complexity;
+        }
+        if (title !== undefined) {
+          params.title = title;
         }
 
         return {
