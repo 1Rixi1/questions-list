@@ -1,3 +1,13 @@
+.chip {
+  font-weight: 500;
+  line-height: 1.2;
+  border: 1px solid #bababa;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  color: #303030;
+}
+
 .selected {
-  background-color: red;
+  border: 1px solid #6a0bff;
 }

@@ -5,7 +5,9 @@ import { useQueryParams } from "@/shared/lib/use-query-params.ts";
 import { Pagination } from "@/features/pagination/ui/pagination.tsx";
 
 import styles from "./styles.module.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FilterIcon } from "@/shared/ui/icons/filter/filter-icon.tsx";
+import { CloseIcon } from "@/shared/ui/icons/close/close-icon.tsx";
 
 export const QuestionsList = () => {
   const {
@@ -32,6 +34,8 @@ export const QuestionsList = () => {
     title,
     page,
   });
+
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const autoFilled = useRef({ spec: false, skills: false });
 
@@ -94,12 +98,17 @@ export const QuestionsList = () => {
   const currentPage = page ? Number(page) : 1;
 
   return (
-    <main className={styles.main}>
+    <main className={styles.wrapper}>
       <div className={styles.container}>
-        <section aria-labelledby="questions-heading">
-          <h1 id="questions-heading" className="visually-hidden">
+        <section className={styles.section} aria-labelledby="questions-heading">
+          <h1 className={styles.title} id="questions-heading">
             Список вопросов
           </h1>
+
+          <FilterIcon
+            className={styles.filterIcon}
+            onClick={() => setFilterOpen(true)}
+          />
 
           <ul className={styles.list}>
             {questionsList.data.map(
@@ -117,26 +126,36 @@ export const QuestionsList = () => {
               )
             )}
           </ul>
+          <nav
+            className={styles.pagination}
+            aria-label="Навигация по страницам списка вопросов"
+          >
+            <Pagination
+              totalPage={totalPages}
+              currentPage={currentPage}
+              onChange={setPage}
+            />
+          </nav>
         </section>
 
-        <aside className={styles.filter} aria-labelledby="filter-heading">
+        <aside
+          className={`${styles.filter} ${filterOpen && styles.open}`}
+          aria-labelledby="filter-heading"
+        >
           <h2 id="filter-heading" className="visually-hidden">
             Фильтрация
           </h2>
+
+          {filterOpen &&
+            <CloseIcon
+              className={`${filterOpen && styles.closeBtn}`}
+              onClick={() => setFilterOpen(false)}
+            />
+          }
+
           <FilterPanel />
         </aside>
       </div>
-
-      <nav
-        className={styles.pagination}
-        aria-label="Навигация по страницам списка вопросов"
-      >
-        <Pagination
-          totalPage={totalPages}
-          currentPage={currentPage}
-          onChange={setPage}
-        />
-      </nav>
     </main>
   );
 };

@@ -1,35 +1,22 @@
 import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import Chip from "@/shared/ui/chip/chip.tsx";
+import { ChipSelect } from "@/shared/ui/chipSelect/chip-select.tsx";
 
-const rateOptions = ["1", "2", "3", "4", "5"] as const;
-
-type RateOption = (typeof rateOptions)[number];
-
+const rateOptions = [
+  { title: "1", id: 1 },
+  { title: "2", id: 2 },
+  { title: "3", id: 3 },
+  { title: "4", id: 4 },
+  { title: "5", id: 5 },
+];
 export const Rate = () => {
-  const { rate: currentRate, setRate } = useQueryParams();
-
-  const arrRate = currentRate ? currentRate.split(",") : [];
-
-  const handleClickToggle = (value: RateOption) => {
-    const newArr = arrRate.includes(value)
-      ? arrRate.filter((rate) => rate !== value)
-      : [...arrRate, value];
-
-    setRate(newArr.join(","));
-  };
+  const { rate, setRate } = useQueryParams();
 
   return (
-    <div>
-      <h3>Рейтинг</h3>
-      {rateOptions.map((rate) => (
-        <Chip
-          key={rate}
-          selected={arrRate.includes(rate)}
-          onClick={() => handleClickToggle(rate)}
-        >
-          {rate}
-        </Chip>
-      ))}
-    </div>
+    <ChipSelect
+      title="Рейтинг"
+      options={rateOptions}
+      onChange={setRate}
+      value={rate}
+    />
   );
 };

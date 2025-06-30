@@ -2,10 +2,12 @@ import { useQueryParams } from "@/shared/lib/use-query-params.ts";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
+import SearchIcon from "@/shared/ui/icons/search/search-icon.tsx";
 
-type Props = {};
 
-export const Search = ({}: Props) => {
+import styles from "./styles.module.css";
+
+export const Search = () => {
   const { setTitle } = useQueryParams();
 
   const [localTitle, setLocalTitle] = useState("");
@@ -22,5 +24,18 @@ export const Search = ({}: Props) => {
     debounced(e.currentTarget.value);
   };
 
-  return <input type="text" value={localTitle} onChange={handleChangeTitle} />;
+  return (
+    <fieldset className={styles.wrapper}>
+      <legend className="visually-hidden">Поиск</legend>
+      <SearchIcon className={styles.loupe} />
+      <input
+        className={styles.input}
+        type="text"
+        name="search"
+        placeholder="Введите запрос ..."
+        value={localTitle}
+        onChange={handleChangeTitle}
+      />
+    </fieldset>
+  );
 };

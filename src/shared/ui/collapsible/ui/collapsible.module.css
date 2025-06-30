@@ -3,20 +3,37 @@
 }
 .content {
   overflow: hidden;
-  transition: max-height 0.3s ease;
 }
 .content.collapsed {
   mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+  max-height: 220px;
 }
 
 .toggle {
+  position: relative;
+  display: block;
   margin: 8px auto 0;
-  background: none;
-  border: none;
-  color: #7b3fed;
+  padding: 0 15px 20px;
   cursor: pointer;
   font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  line-height: 1.2;
+}
+
+.toggle:before,
+.toggle:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: rotate(134deg) translate(-45px, -45px);
+  border-top: 2px solid #6a0bff;
+  border-right: 2px solid #6a0bff;
+}
+
+.open:before,
+.open:after {
+  top: 8px;
+  transform: rotate(314deg) translate(40px, 40px);
 }

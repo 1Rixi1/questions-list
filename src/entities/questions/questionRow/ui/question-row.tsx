@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -11,6 +10,8 @@ type Props = {
   rate?: number;
   complexity?: number;
 };
+
+import styles from "./styles.module.css";
 
 export const QuestionRow = ({
   title,
@@ -29,7 +30,7 @@ export const QuestionRow = ({
   return (
     <article className={styles.row}>
       <header className={styles.header}>
-        <h2 className={styles.title} onClick={handleToggleClick}>
+        <h2 className={`${styles.title} ${show && styles.show}`} onClick={handleToggleClick}>
           {title}
         </h2>
       </header>

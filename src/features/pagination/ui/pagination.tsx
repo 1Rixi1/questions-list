@@ -1,6 +1,9 @@
 import Chip from "@/shared/ui/chip/chip.tsx";
 import { usePaginationRange } from "@/shared/lib/use-pagination-range.ts";
 
+import styles from "./styles.module.css";
+import cn from "classnames";
+
 type Props = {
   currentPage: number;
   totalPage: number;
@@ -26,24 +29,35 @@ export const Pagination = ({ currentPage, totalPage, onChange }: Props) => {
   };
 
   return (
-    <div>
-      <Chip onClick={prevPage}>←</Chip>
+    <nav className={styles.nav} aria-label="Пагинация">
+      <li className={styles.arrowItem}>
+        <Chip className={styles.arrowLeft} onClick={prevPage} />
+      </li>
 
-      {pages.map((page) =>
-        page === "..." ? (
-          <span>...</span>
-        ) : (
-          <Chip
-            key={page}
-            selected={page === currentPage}
-            onClick={() => handleClickPagination(page as number)}
-          >
-            {page}
-          </Chip>
-        )
-      )}
+      <ul className={styles.list}>
+        {pages.map((page) =>
+          page === "..." ? (
+            <li className={styles.punctuation}>...</li>
+          ) : (
+            <li className={styles.pageItem}>
+              <Chip
+                key={page}
+                className={cn(styles.page, {
+                  [styles.pageSelected]: page === currentPage,
+                })}
+                selected={page === currentPage}
+                onClick={() => handleClickPagination(page as number)}
+              >
+                {page}
+              </Chip>
+            </li>
+          )
+        )}
+      </ul>
 
-      <Chip onClick={nextPage}>→</Chip>
-    </div>
+      <li className={styles.arrowItem}>
+        <Chip className={styles.arrowRight} onClick={nextPage} />
+      </li>
+    </nav>
   );
 };

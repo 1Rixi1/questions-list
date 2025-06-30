@@ -1,16 +1,18 @@
 import Chip from "@/shared/ui/chip/chip.tsx";
 
+import styles from "./styles.module.css";
+
 export type OptionsType = {
-  id: number;
+  id: number | string;
   title: string;
 };
 
 type Props = {
   title: string;
   value?: string;
-  cut: number;
-  show: boolean;
-  setShow: (value: boolean) => void;
+  cut?: number;
+  show?: boolean;
+  setShow?: (value: boolean) => void;
   options: OptionsType[];
   onChange: (value: string) => void;
 };
@@ -27,12 +29,12 @@ export const ChipSelect = ({
   const visibleOptions = show ? options : options.slice(0, cut);
 
   const handleClickToggle = () => {
-    setShow(!show);
+    setShow && setShow(!show);
   };
 
   const arrValues = value ? value.split(",") : [];
 
-  const handleClickChip = (id: number) => {
+  const handleClickChip = (id: number | string) => {
     const strId = String(id);
 
     const newArr = arrValues.includes(strId)
@@ -43,25 +45,35 @@ export const ChipSelect = ({
   };
 
   return (
-    <fieldset>
-      <legend>{title}</legend>
+    <fieldset className={styles.wrapper}>
+      <legend className={styles.title}>{title}</legend>
 
-      {visibleOptions.map(({ id, title }) => (
-        <Chip
-          key={id}
-          selected={arrValues.includes(String(id))}
-          onClick={() => handleClickChip(id)}
-          role="checkbox"
-          aria-checked={arrValues.includes(String(id))}
-          aria-label={title}
+      <ul className={styles.list}>
+        {visibleOptions.map(({ id, title }) => (
+          <li key={id} className={styles.listitem}>
+            <Chip
+              className={styles.chip}
+              selected={arrValues.includes(String(id))}
+              onClick={() => handleClickChip(id)}
+              role="checkbox"
+              aria-checked={arrValues.includes(String(id))}
+              aria-label={title}
+            >
+              {title}
+            </Chip>
+          </li>
+        ))}
+      </ul>
+
+      {cut && (
+        <button
+          className={styles.btn}
+          onClick={handleClickToggle}
+          type="button"
         >
-          {title}
-        </Chip>
-      ))}
-
-      <button onClick={handleClickToggle} type="button">
-        {show ? "Скрыть" : "Показать все"}
-      </button>
+          {show ? "Скрыть" : "Показать все"}
+        </button>
+      )}
     </fieldset>
   );
 };

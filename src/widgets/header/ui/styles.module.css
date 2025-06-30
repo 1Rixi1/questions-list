@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 112px;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+}
+
+.mainNav,
+.authNav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.authNav {
+  gap: 26px;
+}
+
+.registration {
+  padding: 12px 30px;
+  background-color: #6a0bff;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.btnToggle,
+.menu,
+.closeBtn {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 30px;
+  }
+
+  .authNav,
+  .mainNav {
+    display: none;
+  }
+  .btnToggle,
+  .menu,
+  .closeBtn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .branding {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
+  .authNav.showAuthNav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 24px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #fff;
+    z-index: 3;
+  }
+  .mainNav.showMainNav {
+    position: absolute;
+    display: flex;
+    top: 65px;
+    left: 180px;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 24px;
+    align-items: start;
+    background-color: #fff;
+    z-index: 2;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+  }
+}

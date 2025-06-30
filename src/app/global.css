@@ -93,7 +93,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.3;
-  background-color: #f4f4f4;
+  background-color: #f8f8f8;
 }
 
 /* 2. Поддержка HTML5-тегов в старых браузерах */
@@ -118,7 +118,8 @@ body {
 
 /* 4. Убираем маркеры списков */
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 

@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  padding: 14px 14px 14px 52px;
+  border: 1px solid #e8e8e8;
+  border-radius: 68px;
+  width: 100%;
+}
+
+.loupe {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  width: 18px;
+  height: 18px;
+}
