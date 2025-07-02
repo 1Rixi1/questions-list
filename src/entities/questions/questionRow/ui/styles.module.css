@@ -43,7 +43,7 @@
 }
 
 .title,
-.section {
+.question {
   padding-left: 24px;
 }
 
@@ -98,28 +98,24 @@
   font-weight: 600;
   color: #6a0bff;
 }
+
+.more:before,
 .more:after {
   content: "";
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
+  border-top: 2px solid #6a0bff;
   width: 14px;
   height: 14px;
+}
+
+.more:after {
   transform: rotate(45deg);
-  border-top: 2px solid #6a0bff;
   border-right: 2px solid #6a0bff;
-  z-index: 2;
 }
 
 .more:before {
-  content: "";
-  position: absolute;
   top: 6px;
-  right: 0;
   width: 18px;
-  border-top: 2px solid #6a0bff;
-  z-index: 1;
 }
-
-
-

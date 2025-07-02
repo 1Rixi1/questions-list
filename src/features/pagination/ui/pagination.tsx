@@ -1,8 +1,8 @@
-import Chip from "@/shared/ui/chip/chip.tsx";
-import { usePaginationRange } from "@/shared/lib/use-pagination-range.ts";
+import { usePaginationRange } from "@/shared/lib";
 
 import styles from "./styles.module.css";
 import cn from "classnames";
+import { Chip } from "@/shared/ui";
 
 type Props = {
   currentPage: number;

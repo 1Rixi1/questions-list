@@ -1,4 +1,5 @@
-import { baseApi } from "@/shared/api/base-api.ts";
+import { baseApi } from "@/shared/api";
+
 import type {
   SkillsParams,
   SkillsResponse,

@@ -1,4 +1,5 @@
-import { baseApi } from "@/shared/api/base-api.ts";
+import { baseApi } from "@/shared/api";
+
 import type {
   SpecializationsParams,
   SpecializationsResponse,
@@ -30,5 +31,4 @@ export const specializationsApi = baseApi.injectEndpoints({
   overrideExisting: true,
 });
 
-
-export const {useGetSpecializationsQuery} = specializationsApi
+export const { useGetSpecializationsQuery } = specializationsApi;

@@ -35,6 +35,27 @@
 .closeBtn {
   display: none;
 }
+.btnToggle {
+  position: relative;
+}
+
+.btnToggle:after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #303030;
+  border-right: 1px solid #303030;
+  transform: rotate(45deg);
+  top: -4px;
+  right: -24px;
+  width: 15px;
+  height: 15px;
+}
+
+.btnToggle.rotate:after {
+  transform: rotate(225deg);
+  top: 4px;
+}
+
 
 @media (max-width: 900px) {
   .header {

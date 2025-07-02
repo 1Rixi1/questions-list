@@ -1,11 +1,9 @@
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import { ChipSelect } from "@/shared/ui/chipSelect/chip-select.tsx";
 import { useState } from "react";
-import { useGetSkillsQuery } from "@/entities/skills/api/skills-api.ts";
+import { useQueryParams } from "@/shared/lib";
+import { useGetSkillsQuery } from "@/entities/skills";
+import { ChipSelect } from "@/shared/ui";
 
-type Props = {};
-
-export const Skills = ({}: Props) => {
+export const Skills = () => {
   const [show, setShow] = useState(false);
 
   const { skills: currentSkill, setSkills } = useQueryParams();

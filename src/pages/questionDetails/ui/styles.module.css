@@ -2,15 +2,21 @@
   margin-top: 75px;
 }
 
-.content {
+.question {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sectionMain {
   position: relative;
+  flex: 1 1 0;
+  max-width: 804px;
 }
 
 .nav {
   position: absolute;
-  margin-bottom: 24px;
-  top: -40px;
-  left: 18px;
+  transform: translate(27px, -40px);
 }
 
 .nav > button {
@@ -21,24 +27,13 @@
 .nav > button:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 2px;
   left: -14px;
   width: 14px;
   height: 14px;
   border-top: 2px solid #6a0bff;
   border-right: 2px solid #6a0bff;
   transform: rotate(-134deg);
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.content {
-  flex: 1 1 0;
-  max-width: 804px;
 }
 
 .sectionItem {
@@ -99,13 +94,8 @@
   cursor: pointer;
 }
 
-.shortAnswer > p,
-.longAnswer p {
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.asideContent {
+.aside {
+  position: relative;
   background-color: #fff;
   max-width: 392px;
   width: 100%;
@@ -113,7 +103,17 @@
   border-radius: 24px;
   flex: 1 1 0;
   align-self: start;
-  margin-bottom: 30px;
+}
+
+.sectionAside:not(:last-of-type) {
+  margin-bottom: 24px;
+}
+
+.titleAside {
+  color: #474747;
+  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .meta {
@@ -136,33 +136,31 @@
   border-radius: 4px;
 }
 
-.sectionAside {
-  margin-bottom: 24px;
-}
-
-.titleAside {
-  color: #474747;
-  margin-bottom: 8px;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
 .keyword {
   color: #6a0bff;
   line-height: 1.6;
 }
 
 .footer {
+  position: absolute;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
 
+.authorTitle,
 .authorName {
   color: #6a0bff;
   font-size: 14px;
   line-height: 1.2;
+}
+
+.authorTitle {
+  color: #303030;
 }
 
 .closeBtn {
@@ -175,29 +173,40 @@
 }
 
 @media (max-width: 900px) {
-  .aside {
-    display: none;
+  .sectionItem {
+    padding: 20px 16px;
+  }
+
+  .sectionHeader {
+    padding: 16px;
   }
 
   .metaIcon {
     display: block;
   }
 
-  .aside.show {
+  .aside {
+    display: none;
+  }
+
+  .aside.showAside {
     display: block;
+    padding: 52px 24px 57px;
+    border-radius: 0;
     position: absolute;
     top: 67px;
     right: 0;
     z-index: 2;
   }
-  .asideContent {
-    border-radius: 0;
-    padding: 52px 24px 57px;
-  }
 
   .footer {
     position: absolute;
-    bottom: 52px;
-    left: 24px;
+    bottom: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .question {
+    display: block;
   }
 }

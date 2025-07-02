@@ -1,5 +1,5 @@
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import { ChipSelect } from "@/shared/ui/chipSelect/chip-select.tsx";
+import { useQueryParams } from "@/shared/lib";
+import { ChipSelect } from "@/shared/ui";
 
 const rateOptions = [
   { title: "1", id: 1 },

@@ -7,7 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected?: boolean;
 }
 
-const Chip = ({ children, selected, className, ...rest }: Props) => {
+export const Chip = ({ children, selected, className, ...rest }: Props) => {
   return (
     <button
       {...rest}
@@ -19,4 +19,3 @@ const Chip = ({ children, selected, className, ...rest }: Props) => {
   );
 };
 
-export default Chip;

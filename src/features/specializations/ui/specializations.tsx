@@ -1,7 +1,7 @@
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import { ChipSelect } from "@/shared/ui/chipSelect/chip-select.tsx";
-import { useGetSpecializationsQuery } from "@/entities/specializations/api/specializations-api.ts";
 import { useState } from "react";
+import {useGetSpecializationsQuery} from "@/entities/specializations";
+import {useQueryParams} from "@/shared/lib";
+import {ChipSelect} from "@/shared/ui";
 
 export const Specializations = () => {
   const [show, setShow] = useState(false);

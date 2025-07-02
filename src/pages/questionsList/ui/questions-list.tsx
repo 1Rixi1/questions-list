@@ -1,13 +1,11 @@
-import { useGetQuestionsQuery } from "@/entities/questions/questionsList/api/questions-list-api.ts";
-import { QuestionRow } from "@/entities/questions";
-import { FilterPanel } from "@/widgets/filterPanel/ui/filter-panel.tsx";
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import { Pagination } from "@/features/pagination/ui/pagination.tsx";
+import { QuestionRow, useGetQuestionsQuery } from "@/entities/questions";
 
 import styles from "./styles.module.css";
 import { useEffect, useRef, useState } from "react";
-import { FilterIcon } from "@/shared/ui/icons/filter/filter-icon.tsx";
-import { CloseIcon } from "@/shared/ui/icons/close/close-icon.tsx";
+import { useQueryParams } from "@/shared/lib";
+import { CloseIcon, FilterIcon } from "@/shared/ui";
+import { Pagination } from "@/features/pagination";
+import { FilterPanel } from "@/widgets/filterPanel";
 
 export const QuestionsList = () => {
   const {
@@ -35,7 +33,7 @@ export const QuestionsList = () => {
     page,
   });
 
-  const [filterOpen, setFilterOpen] = useState(false);
+  const [asideOpen, setAsideOpen] = useState(false);
 
   const autoFilled = useRef({ spec: false, skills: false });
 
@@ -76,7 +74,15 @@ export const QuestionsList = () => {
       setSkills(skillsIdsStr);
       autoFilled.current.skills = true;
     }
-  }, [questionsList, title, isFetching]);
+  }, [
+    questionsList,
+    title,
+    isFetching,
+    specialization,
+    setSpecialization,
+    skills,
+    setSkills,
+  ]);
 
   if (isLoading) {
     return <div>Загрузка ...</div>;
@@ -99,15 +105,18 @@ export const QuestionsList = () => {
 
   return (
     <main className={styles.wrapper}>
-      <div className={styles.container}>
-        <section className={styles.section} aria-labelledby="questions-heading">
+      <div className={styles.layout}>
+        <section
+          className={styles.questions}
+          aria-labelledby="questions-heading"
+        >
           <h1 className={styles.title} id="questions-heading">
             Список вопросов
           </h1>
 
           <FilterIcon
             className={styles.filterIcon}
-            onClick={() => setFilterOpen(true)}
+            onClick={() => setAsideOpen(true)}
           />
 
           <ul className={styles.list}>
@@ -139,19 +148,19 @@ export const QuestionsList = () => {
         </section>
 
         <aside
-          className={`${styles.filter} ${filterOpen && styles.open}`}
+          className={`${styles.aside} ${asideOpen && styles.asideOpen}`}
           aria-labelledby="filter-heading"
         >
           <h2 id="filter-heading" className="visually-hidden">
             Фильтрация
           </h2>
 
-          {filterOpen &&
+          {asideOpen && (
             <CloseIcon
-              className={`${filterOpen && styles.closeBtn}`}
-              onClick={() => setFilterOpen(false)}
+              className={`${asideOpen && styles.closeBtn}`}
+              onClick={() => setAsideOpen(false)}
             />
-          }
+          )}
 
           <FilterPanel />
         </aside>

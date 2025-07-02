@@ -1,5 +1,5 @@
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import { ChipSelect } from "@/shared/ui/chipSelect/chip-select.tsx";
+import { ChipSelect } from "@/shared/ui";
+import { useQueryParams } from "@/shared/lib";
 
 const complexityOptions = [
   { title: "1-3", id: "1-3" },

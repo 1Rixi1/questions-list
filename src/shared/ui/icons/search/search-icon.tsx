@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+export const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="18"
@@ -21,4 +21,3 @@ const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   );
 };
 
-export default SearchIcon;

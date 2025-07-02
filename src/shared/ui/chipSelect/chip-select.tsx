@@ -1,6 +1,6 @@
-import Chip from "@/shared/ui/chip/chip.tsx";
 
 import styles from "./styles.module.css";
+import {Chip} from "@/shared/ui";
 
 export type OptionsType = {
   id: number | string;
@@ -29,7 +29,9 @@ export const ChipSelect = ({
   const visibleOptions = show ? options : options.slice(0, cut);
 
   const handleClickToggle = () => {
-    setShow && setShow(!show);
+    if (setShow) {
+      setShow(!show);
+    }
   };
 
   const arrValues = value ? value.split(",") : [];

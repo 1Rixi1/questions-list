@@ -30,48 +30,45 @@ export const QuestionRow = ({
   return (
     <article className={styles.row}>
       <header className={styles.header}>
-        <h2 className={`${styles.title} ${show && styles.show}`} onClick={handleToggleClick}>
+        <h2
+          className={`${styles.title} ${show && styles.show}`}
+          onClick={handleToggleClick}
+        >
           {title}
         </h2>
       </header>
 
       {show && (
-        <>
-          <section className={styles.section} aria-live="polite">
-            <dl className={styles.meta}>
-              <div className={styles.metaItem}>
-                <dt className={styles.term}>Рейтинг:</dt>
-                <dd className={styles.desc}>{rate}</dd>
-              </div>
-              <div className={styles.metaItem}>
-                <dt className={styles.term}>Сложность:</dt>
-                <dd className={styles.desc}>{complexity}</dd>
-              </div>
-            </dl>
+        <section className={styles.question} aria-live="polite">
+          <dl className={styles.meta}>
+            <div className={styles.metaItem}>
+              <dt className={styles.term}>Рейтинг:</dt>
+              <dd className={styles.desc}>{rate}</dd>
+            </div>
+            <div className={styles.metaItem}>
+              <dt className={styles.term}>Сложность:</dt>
+              <dd className={styles.desc}>{complexity}</dd>
+            </div>
+          </dl>
 
-            {imageSrc && (
-              <figure className={styles.figure}>
-                <img
-                  className={styles.img}
-                  src={imageSrc}
-                  alt="image question"
-                />
-              </figure>
-            )}
+          {imageSrc && (
+            <figure className={styles.figure}>
+              <img className={styles.img} src={imageSrc} alt="image question" />
+            </figure>
+          )}
 
-            {shortAnswer && (
-              <p
-                className={styles.shortAnswer}
-                dangerouslySetInnerHTML={{ __html: shortAnswer }}
-              />
-            )}
-          </section>
+          {shortAnswer && (
+            <p
+              className={styles.shortAnswer}
+              dangerouslySetInnerHTML={{ __html: shortAnswer }}
+            />
+          )}
           <nav className={styles.nav}>
             <Link className={styles.more} to={`${id}`}>
               Подробнее
             </Link>
           </nav>
-        </>
+        </section>
       )}
     </article>
   );

@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
-import { Logo } from "@/shared/ui/icons/logo/logo.tsx";
 
 import styles from "./styles.module.css";
-import MenuIcon from "@/shared/ui/icons/menu/menu-icon.tsx";
 import { useState } from "react";
-import { CloseIcon } from "@/shared/ui/icons/close/close-icon.tsx";
+import { CloseIcon, Logo, MenuIcon } from "@/shared/ui";
 
 export const Header = () => {
-  const [openAuthMenu, setOpenAuthMenu] = useState(false);
   const [options, SetOptions] = useState(false);
+  const [openAuthMenu, setOpenAuthMenu] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -19,7 +17,7 @@ export const Header = () => {
           </Link>
 
           <button
-            className={styles.btnToggle}
+            className={`${styles.btnToggle} ${options && styles.rotate}`}
             onClick={() => SetOptions(!options)}
           >
             Подготовка

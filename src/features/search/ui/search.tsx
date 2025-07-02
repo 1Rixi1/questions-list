@@ -1,11 +1,10 @@
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import SearchIcon from "@/shared/ui/icons/search/search-icon.tsx";
-
 
 import styles from "./styles.module.css";
+import { useQueryParams } from "@/shared/lib";
+import { SearchIcon } from "@/shared/ui";
 
 export const Search = () => {
   const { setTitle } = useQueryParams();

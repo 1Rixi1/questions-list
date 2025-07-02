@@ -1,6 +1,6 @@
 import React from "react";
 
-const MenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+export const MenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="32"
@@ -32,4 +32,3 @@ const MenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   );
 };
 
-export default MenuIcon;
