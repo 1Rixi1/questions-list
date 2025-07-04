@@ -8,3 +8,4 @@ export { MenuIcon } from "./icons/menu/menu-icon.tsx";
 export { FilterIcon } from "./icons/filter/filter-icon.tsx";
 export { CloseIcon } from "./icons/close/close-icon.tsx";
 export { SearchIcon } from "./icons/search/search-icon.tsx";
+export {BackButton} from './backButton/back-button.tsx'

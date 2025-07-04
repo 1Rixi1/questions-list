@@ -1,7 +1,6 @@
 .wrapper {
   margin-top: 40px;
-}
-.layout {
+  padding: 0 30px 0;
   position: relative;
   display: flex;
   justify-content: center;
@@ -26,78 +25,20 @@
   border-bottom: 1px solid #e8e8e8;
 }
 
-.filterIcon {
-  display: none;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-}
-
-.aside {
-  flex: 0 1 392px;
-}
-
 .list > li {
   display: grid;
   gap: 20px;
   grid-template-columns: minmax(0, 1fr);
 }
 
-.aside {
-  background-color: #fff;
-  padding: 24px;
-  align-self: flex-start;
-  max-width: 328px;
-  width: 100%;
-  border-radius: 24px;
-}
-
-.closeBtn {
-  position: absolute;
-  cursor: pointer;
-  top: 16px;
-  right: 16px;
-  width: 20px;
-  height: 20px;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .aside {
-    position: absolute;
-    padding-top: 44px;
-    display: none;
-  }
-
-  .filterIcon,
-  .filterBtnClose {
+@media (max-width: 800px) {
+  .wrapper {
+    padding: 0 10px 0;
     display: block;
   }
 
-  .aside.asideOpen {
-    display: block;
-    position: relative;
-    right: 0;
-  }
-}
-
-@media (max-width: 780px) {
   .container > section {
     padding: 20px 10px;
-  }
-
-  .aside.asideOpen {
-    position: absolute;
-    left: 0;
-    right: 0;
-    min-width: 100%;
   }
 }
 

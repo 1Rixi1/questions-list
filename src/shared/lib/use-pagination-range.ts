@@ -1,19 +1,32 @@
 import { useMemo } from "react";
+import { useQueryParams } from "@/shared/lib/use-query-params.ts";
+import {useGetQuestionsQuery} from "@/entities/questionsList";
 
-export const usePaginationRange = (
-  totalPages: number,
-  currentPage: number,
-  siblingCount: number = 1
-) => {
+export const usePaginationRange = (siblingCount: number = 1) => {
+  const { data: questionsList } = useGetQuestionsQuery({});
+
+  const { page } = useQueryParams();
+
+  const currentPage = page ? Number(page) : 1;
+
+  const totalNumbers = 5 + 2 * siblingCount;
+
+  const totalPages =
+    questionsList && questionsList.total && questionsList.limit
+      ? Math.ceil(questionsList.total / questionsList.limit)
+      : 1;
+
   return useMemo(() => {
     const range = (from: number, to: number) => {
       return Array.from({ length: to - from + 1 }, (_, i) => i + from);
     };
 
-    const totalNumbers = 5 + 2 * siblingCount;
-
     if (totalNumbers >= totalPages) {
-      return range(1, totalPages);
+      return {
+        pages: range(1, totalPages),
+        currentPage,
+        totalPages,
+      };
     }
 
     const leftSibling = Math.max(currentPage - siblingCount, 1);
@@ -26,13 +39,25 @@ export const usePaginationRange = (
     const count = 3 + 2 * siblingCount;
 
     if (showLeftDots && !showRightDots) {
-      return [1, "...", ...range(totalPages - (count - 1), totalPages)];
+      return {
+        pages: [1, "...", ...range(totalPages - (count - 1), totalPages)],
+        currentPage,
+        totalPages,
+      };
     }
 
     if (!showLeftDots && showRightDots) {
-      return [...range(1, count), "...", totalPages];
+      return {
+        pages: [...range(1, count), "...", totalPages],
+        currentPage,
+        totalPages,
+      };
     }
 
-    return [1, "...", ...range(leftSibling, rightSibling), "...", totalPages];
-  }, [totalPages, currentPage, siblingCount]);
+    return {
+      pages: [1, "...", ...range(leftSibling, rightSibling), "...", totalPages],
+      currentPage,
+      totalPages,
+    };
+  }, [siblingCount, currentPage, totalPages]);
 };

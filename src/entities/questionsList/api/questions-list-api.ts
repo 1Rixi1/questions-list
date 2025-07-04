@@ -1,8 +1,8 @@
+import { baseApi } from "@/shared/api";
 import type {
   QuestionsListParams,
   QuestionsListResponse,
-} from "@/entities/questions/questionsList/type/type.ts";
-import { baseApi } from "@/shared/api";
+} from "@/entities/questionsList/type/type.ts";
 
 export const questionsListApi = baseApi.injectEndpoints({
   endpoints: ({ query }) => ({

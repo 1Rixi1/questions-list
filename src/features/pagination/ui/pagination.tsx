@@ -5,13 +5,11 @@ import cn from "classnames";
 import { Chip } from "@/shared/ui";
 
 type Props = {
-  currentPage: number;
-  totalPage: number;
   onChange: (value: string) => void;
 };
 
-export const Pagination = ({ currentPage, totalPage, onChange }: Props) => {
-  const pages = usePaginationRange(totalPage, currentPage);
+export const Pagination = ({ onChange }: Props) => {
+  const { pages, currentPage, totalPages } = usePaginationRange();
 
   const handleClickPagination = (page: number) => {
     onChange(String(page));
@@ -23,7 +21,7 @@ export const Pagination = ({ currentPage, totalPage, onChange }: Props) => {
     onChange(newPage);
   };
   const nextPage = () => {
-    const newPage = String(Math.min(currentPage + 1, totalPage));
+    const newPage = String(Math.min(currentPage + 1, totalPages));
 
     onChange(newPage);
   };
@@ -39,9 +37,8 @@ export const Pagination = ({ currentPage, totalPage, onChange }: Props) => {
           page === "..." ? (
             <li className={styles.punctuation}>...</li>
           ) : (
-            <li className={styles.pageItem}>
+            <li key={page} className={styles.pageItem}>
               <Chip
-                key={page}
                 className={cn(styles.page, {
                   [styles.pageSelected]: page === currentPage,
                 })}
