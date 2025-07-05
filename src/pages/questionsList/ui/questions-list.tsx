@@ -31,7 +31,7 @@ export const QuestionsList = () => {
   }
 
   return (
-    <DataStatus isError={isError} isLoading={isLoading}>
+    <DataStatus isError={isError} isLoading={isLoading} variant="list">
       <main className={styles.wrapper}>
         <section
           className={styles.questions}

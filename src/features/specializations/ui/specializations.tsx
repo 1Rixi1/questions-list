@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetSpecializationsQuery } from "@/entities/specializations";
 import { useQueryParams } from "@/shared/lib";
-import { ChipSelect } from "@/shared/ui";
+import { ChipSelect, DataStatus } from "@/shared/ui";
 
 export const Specializations = () => {
   const [show, setShow] = useState(false);
@@ -13,12 +13,6 @@ export const Specializations = () => {
   } = useGetSpecializationsQuery({});
 
   const { specialization, setSpecialization } = useQueryParams();
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-  if (isError) {
-    return <div>Error ...</div>;
-  }
 
   if (!specializations) {
     return null;
@@ -30,14 +24,16 @@ export const Specializations = () => {
   }));
 
   return (
-    <ChipSelect
-      title="Специализация"
-      onChange={setSpecialization}
-      value={specialization}
-      options={options}
-      show={show}
-      setShow={setShow}
-      cut={5}
-    />
+    <DataStatus isError={isError} isLoading={isLoading}>
+      <ChipSelect
+        title="Специализация"
+        onChange={setSpecialization}
+        value={specialization}
+        options={options}
+        show={show}
+        setShow={setShow}
+        cut={5}
+      />
+    </DataStatus>
   );
 };

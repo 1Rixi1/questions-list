@@ -25,7 +25,7 @@ export const QuestionDetails = () => {
   }
 
   return (
-    <DataStatus isError={isError} isLoading={isLoading}>
+    <DataStatus isError={isError} isLoading={isLoading} variant="details">
       <main className={styles.wrapper}>
         <article className={styles.question} aria-labelledby="question-main">
           <section className={styles.sectionMain}>

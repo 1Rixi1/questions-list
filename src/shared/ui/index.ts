@@ -9,3 +9,4 @@ export { CloseIcon } from "./icons/close/close-icon.tsx";
 export { SearchIcon } from "./icons/search/search-icon.tsx";
 export { BackButton } from "./backButton/back-button.tsx";
 export { DataStatus } from "./dataStatus/data-status.tsx";
+export {Skeleton} from './skeleton/Skeleton.tsx'

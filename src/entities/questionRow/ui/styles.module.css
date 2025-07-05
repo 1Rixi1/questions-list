@@ -1,7 +1,7 @@
 .row {
-  border-bottom: 1px solid #d1d1d1;
-  padding-bottom: 19px;
+  padding-bottom: 20px;
   margin-bottom: 24px;
+  border-bottom: 1px solid #d1d1d1;
 }
 .header {
   margin-bottom: 24px;
@@ -118,4 +118,13 @@
 .more:before {
   top: 6px;
   width: 18px;
+}
+
+@media (max-width: 540px) {
+  .question {
+    padding-left: 10px;
+  }
+  .shortAnswer {
+    overflow: auto;
+  }
 }

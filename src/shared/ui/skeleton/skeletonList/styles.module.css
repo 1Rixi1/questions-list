@@ -1,0 +1,30 @@
+.skeleton {
+  width: 100%;
+  height: calc(100vh - 71px);
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 112px 130px;
+}
+
+.skeleton > svg:first-of-type {
+  height: 100%;
+}
+
+.skeleton > svg:last-of-type {
+  height: 60%;
+}
+
+@media (max-width: 920px) {
+  .skeleton {
+    padding: 15px 30px;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .skeleton {
+    padding:10px;
+  }
+}
