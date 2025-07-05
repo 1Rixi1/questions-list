@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { CloseIcon, Logo, MenuIcon } from "@/shared/ui";
+import { CloseIcon, MenuIcon } from "@/shared/ui";
+import { LogoImage } from "@/shared/ui/icons/logoImage/logo-image.tsx";
+import { LogoTitle } from "@/shared/ui/icons/logoTitle/logo-title.tsx";
 
 export const Header = () => {
   const [options, SetOptions] = useState(false);
@@ -13,7 +15,8 @@ export const Header = () => {
       <div className={styles.container} aria-label="Лого и основная навигация">
         <div className={styles.branding} aria-label="Лого и выбор раздела">
           <Link className={styles.logo} to="/">
-            <Logo />
+            <LogoImage />
+            <LogoTitle />
           </Link>
 
           <button

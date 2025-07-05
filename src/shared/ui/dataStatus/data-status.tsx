@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const DataStatus = ({ isLoading, isError, children }: Props) => {
+export const DataStatus = ({ isLoading, isError, children }: Props) => {
   if (isLoading) {
     return <div>Загрузка ...</div>;
   }
@@ -18,4 +18,3 @@ const DataStatus = ({ isLoading, isError, children }: Props) => {
   return <div>{children}</div>;
 };
 
-export default DataStatus;

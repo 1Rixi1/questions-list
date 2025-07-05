@@ -3,9 +3,9 @@ export { ChipSelect } from "./chipSelect/chip-select.tsx";
 export { Collapsible } from "./collapsible/ui/collapsible.tsx";
 
 export { MetaIcon } from "./icons/meta/meta-icon.tsx";
-export { Logo } from "./icons/logo/logo.tsx";
 export { MenuIcon } from "./icons/menu/menu-icon.tsx";
 export { FilterIcon } from "./icons/filter/filter-icon.tsx";
 export { CloseIcon } from "./icons/close/close-icon.tsx";
 export { SearchIcon } from "./icons/search/search-icon.tsx";
-export {BackButton} from './backButton/back-button.tsx'
+export { BackButton } from "./backButton/back-button.tsx";
+export { DataStatus } from "./dataStatus/data-status.tsx";

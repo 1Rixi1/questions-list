@@ -1,20 +1,18 @@
 import { useMemo } from "react";
 import { useQueryParams } from "@/shared/lib/use-query-params.ts";
-import {useGetQuestionsQuery} from "@/entities/questionsList";
 
-export const usePaginationRange = (siblingCount: number = 1) => {
-  const { data: questionsList } = useGetQuestionsQuery({});
-
+export const usePaginationRange = (
+  total?: number,
+  limit?: number,
+  siblingCount: number = 1
+) => {
   const { page } = useQueryParams();
 
   const currentPage = page ? Number(page) : 1;
 
   const totalNumbers = 5 + 2 * siblingCount;
 
-  const totalPages =
-    questionsList && questionsList.total && questionsList.limit
-      ? Math.ceil(questionsList.total / questionsList.limit)
-      : 1;
+  const totalPages = total && limit ? Math.ceil(total / limit) : 1;
 
   return useMemo(() => {
     const range = (from: number, to: number) => {
@@ -59,5 +57,5 @@ export const usePaginationRange = (siblingCount: number = 1) => {
       currentPage,
       totalPages,
     };
-  }, [siblingCount, currentPage, totalPages]);
+  }, [siblingCount, currentPage, totalPages, totalNumbers]);
 };

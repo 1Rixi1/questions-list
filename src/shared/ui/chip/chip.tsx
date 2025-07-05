@@ -11,11 +11,10 @@ export const Chip = ({ children, selected, className, ...rest }: Props) => {
   return (
     <button
       {...rest}
-      className={cn(styles.chip, { [styles.selected]: selected }, className)}
+      className={cn(className, styles.chip, { [styles.selected]: selected })}
       type="button"
     >
       {children}
     </button>
   );
 };
-

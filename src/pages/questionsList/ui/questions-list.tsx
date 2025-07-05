@@ -2,10 +2,10 @@ import styles from "./styles.module.css";
 import { useQueryParams } from "@/shared/lib";
 import { Pagination } from "@/features/pagination";
 import { FilterPanel } from "@/widgets/filterPanel";
-import { useAutoFilter } from "@/features/questionsList/lib/use-auto-filter.tsx";
-import DataStatus from "@/shared/ui/dataStatus/ui/data-status.tsx";
 import { useGetQuestionsQuery } from "@/entities/questionsList";
 import { QuestionRow } from "@/entities/questionRow";
+import { DataStatus } from "@/shared/ui";
+import { useAutoFilter } from "@/features/questionsList";
 
 export const QuestionsList = () => {
   const { specialization, skills, complexity, rate, setPage, title, page } =

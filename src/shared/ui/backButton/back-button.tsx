@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { ButtonHTMLAttributes } from "react";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
+type Props = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const BackButton = ({ className }: Props) => {
   const navigate = useNavigate();

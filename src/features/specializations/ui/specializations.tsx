@@ -1,7 +1,7 @@
 import { useState } from "react";
-import {useGetSpecializationsQuery} from "@/entities/specializations";
-import {useQueryParams} from "@/shared/lib";
-import {ChipSelect} from "@/shared/ui";
+import { useGetSpecializationsQuery } from "@/entities/specializations";
+import { useQueryParams } from "@/shared/lib";
+import { ChipSelect } from "@/shared/ui";
 
 export const Specializations = () => {
   const [show, setShow] = useState(false);

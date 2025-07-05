@@ -8,9 +8,8 @@ import {
   ShortAnswer,
   useGetQuestionQuery,
 } from "@/entities/questionDetails";
-import DataStatus from "@/shared/ui/dataStatus/ui/data-status.tsx";
 import { QuestionMetaInfo } from "@/widgets/questionDetails";
-import { BackButton } from "@/shared/ui";
+import { BackButton, DataStatus } from "@/shared/ui";
 
 export const QuestionDetails = () => {
   const { id } = useParams<{ id: string }>();

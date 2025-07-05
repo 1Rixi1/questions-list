@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Chip, CloseIcon, MetaIcon } from "@/shared/ui";
 
 import styles from "./styles.module.css";
-import type {QuestionsListData} from "@/entities/questionsList/type/type.ts";
+import type { QuestionsListData } from "@/entities/questionsList";
 
 type Props = {
   question: QuestionsListData;
@@ -97,4 +97,3 @@ export const QuestionMetaInfo = ({ question }: Props) => {
     </section>
   );
 };
-

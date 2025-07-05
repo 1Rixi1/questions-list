@@ -1,15 +1,31 @@
-import { usePaginationRange } from "@/shared/lib";
+import { usePaginationRange, useQueryParams } from "@/shared/lib";
 
 import styles from "./styles.module.css";
-import cn from "classnames";
 import { Chip } from "@/shared/ui";
+import { useGetQuestionsQuery } from "@/entities/questionsList";
+import cn from "classnames";
 
 type Props = {
   onChange: (value: string) => void;
 };
 
 export const Pagination = ({ onChange }: Props) => {
-  const { pages, currentPage, totalPages } = usePaginationRange();
+  const { specialization, skills, page, title, complexity, rate } =
+    useQueryParams();
+
+  const { data: questionsList } = useGetQuestionsQuery({
+    specialization,
+    skills,
+    page,
+    complexity,
+    rate,
+    title,
+  });
+
+  const { pages, currentPage, totalPages } = usePaginationRange(
+    questionsList?.total,
+    questionsList?.limit
+  );
 
   const handleClickPagination = (page: number) => {
     onChange(String(page));
@@ -37,11 +53,12 @@ export const Pagination = ({ onChange }: Props) => {
           page === "..." ? (
             <li className={styles.punctuation}>...</li>
           ) : (
-            <li key={page} className={styles.pageItem}>
+            <li key={page}>
               <Chip
-                className={cn(styles.page, {
-                  [styles.pageSelected]: page === currentPage,
-                })}
+                className={cn(
+                  { [styles.pageSelected]: currentPage === page },
+                  styles.pageItem
+                )}
                 selected={page === currentPage}
                 onClick={() => handleClickPagination(page as number)}
               >
