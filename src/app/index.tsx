@@ -4,11 +4,11 @@ import { Header } from "@/widgets/header";
 
 export const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Header />
+    <BrowserRouter>
+      <Header />
+      <div className="wrapper">
         <AppRouter />
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 };

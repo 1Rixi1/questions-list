@@ -11,46 +11,52 @@ export const Header = () => {
   const [openAuthMenu, setOpenAuthMenu] = useState(false);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container} aria-label="Лого и основная навигация">
-        <div className={styles.branding} aria-label="Лого и выбор раздела">
-          <Link className={styles.logo} to="/">
-            <LogoImage />
-            <LogoTitle />
-          </Link>
+    <header className={`${styles.header}`}>
+      <div className={`wrapper ${styles.headerWrapper}`}>
+        <div
+          className={`${styles.container}`}
+          aria-label="Лого и основная навигация"
+        >
+          <div className={styles.branding} aria-label="Лого и выбор раздела">
+            <Link className={styles.logo} to="/">
+              <LogoImage />
+              <LogoTitle />
+            </Link>
 
-          <button
-            className={`${styles.btnToggle} ${options && styles.rotate}`}
-            onClick={() => SetOptions(!options)}
+            <button
+              className={`${styles.btnToggle} ${options && styles.rotate}`}
+              onClick={() => SetOptions(!options)}
+            >
+              Подготовка
+            </button>
+          </div>
+
+          <nav
+            className={`${styles.mainNav} ${options && styles.showMainNav}`}
+            aria-label="Основная навигация"
           >
-            Подготовка
-          </button>
+            <Link to="/">База вопросов</Link>
+            <Link to="/trainer">Тренажер</Link>
+          </nav>
         </div>
 
+        <MenuIcon className={styles.menu} onClick={() => setOpenAuthMenu(true)} />
+
         <nav
-          className={`${styles.mainNav} ${options && styles.showMainNav}`}
-          aria-label="Основная навигация"
+          className={`${styles.authNav} ${openAuthMenu && styles.showAuthNav}`}
+          aria-label="Пользовательские действия"
         >
-          <Link to="/">База вопросов</Link>
-          <Link to="/trainer">Тренажер</Link>
+          <Link to="/auth">Вход</Link>
+          <Link className={styles.registration} to="/registration">
+            Регистрация
+          </Link>
+          <CloseIcon
+            className={styles.closeBtn}
+            onClick={() => setOpenAuthMenu(false)}
+          />
         </nav>
       </div>
 
-      <MenuIcon className={styles.menu} onClick={() => setOpenAuthMenu(true)} />
-
-      <nav
-        className={`${styles.authNav} ${openAuthMenu && styles.showAuthNav}`}
-        aria-label="Пользовательские действия"
-      >
-        <Link to="/auth">Вход</Link>
-        <Link className={styles.registration} to="/registration">
-          Регистрация
-        </Link>
-        <CloseIcon
-          className={styles.closeBtn}
-          onClick={() => setOpenAuthMenu(false)}
-        />
-      </nav>
     </header>
   );
 };

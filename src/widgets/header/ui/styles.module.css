@@ -1,9 +1,13 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 112px;
   background-color: #fff;
   border-bottom: 1px solid #e8e8e8;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
 }
 
 .container {
@@ -63,10 +67,6 @@
 }
 
 @media (max-width: 920px) {
-  .header {
-    padding: 15px 30px;
-  }
-
   .authNav,
   .mainNav {
     display: none;
@@ -119,10 +119,6 @@
 }
 
 @media (max-width: 420px) {
-  .header {
-    padding: 10px;
-  }
-
   .branding {
     gap: 20px;
   }

@@ -1,11 +1,10 @@
 .wrapper {
   margin-top: 75px;
-  padding: 0 30px 0;
 }
 
 .question {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -86,10 +85,6 @@
 }
 
 @media (max-width: 920px) {
-  .wrapper {
-    padding: 0 20px 0;
-  }
-
   .question {
     display: block;
   }
@@ -99,11 +94,5 @@
 
   .sectionMain {
     max-width: 100%;
-  }
-}
-
-@media (max-width: 420px) {
-  .wrapper {
-    padding: 0 10px 0;
   }
 }

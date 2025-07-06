@@ -180,6 +180,14 @@ textarea {
   outline: none;
 }
 
+.wrapper {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -190,4 +198,11 @@ textarea {
   clip: rect(0, 0, 0, 0);
   border: none;
   white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
