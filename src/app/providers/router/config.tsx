@@ -7,7 +7,7 @@ const QuestionsListLazy = lazy(() =>
     default: module.QuestionsList,
   }))
 );
-export const QuestionDetailsLazy = lazy(() =>
+const QuestionDetailsLazy = lazy(() =>
   import("@/pages/questionDetails").then((module) => ({
     default: module.QuestionDetails,
   }))

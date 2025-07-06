@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { CloseIcon, MenuIcon } from "@/shared/ui";
-import { LogoImage } from "@/shared/ui/icons/logoImage/logo-image.tsx";
-import { LogoTitle } from "@/shared/ui/icons/logoTitle/logo-title.tsx";
+import { CloseIcon, LogoImage, LogoTitle, MenuIcon } from "@/shared/ui";
 
 export const Header = () => {
   const [options, SetOptions] = useState(false);
@@ -40,7 +38,10 @@ export const Header = () => {
           </nav>
         </div>
 
-        <MenuIcon className={styles.menu} onClick={() => setOpenAuthMenu(true)} />
+        <MenuIcon
+          className={styles.menu}
+          onClick={() => setOpenAuthMenu(true)}
+        />
 
         <nav
           className={`${styles.authNav} ${openAuthMenu && styles.showAuthNav}`}
@@ -56,7 +57,6 @@ export const Header = () => {
           />
         </nav>
       </div>
-
     </header>
   );
 };

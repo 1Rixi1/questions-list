@@ -11,6 +11,8 @@ export const QuestionsList = () => {
   const { specialization, skills, complexity, rate, setPage, title, page } =
     useQueryParams();
 
+  useAutoFilter();
+
   const {
     data: questionsList,
     isLoading,
@@ -23,8 +25,6 @@ export const QuestionsList = () => {
     title,
     page,
   });
-
-  useAutoFilter();
 
   if (!questionsList) {
     return null;

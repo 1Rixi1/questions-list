@@ -10,3 +10,5 @@ export { SearchIcon } from "./icons/search/search-icon.tsx";
 export { BackButton } from "./backButton/back-button.tsx";
 export { DataStatus } from "./dataStatus/data-status.tsx";
 export {Skeleton} from './skeleton/Skeleton.tsx'
+export {LogoTitle} from './icons/logoTitle/logo-title.tsx'
+export {LogoImage} from './icons/logoImage/logo-image.tsx'
