@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useQueryParams } from "@/shared/lib/use-query-params.ts";
+import { useQueryParams } from "@/shared/lib/use-query-params";
 
 export const usePaginationRange = (
   total?: number,
