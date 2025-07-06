@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/questions/public-questions/:rest*",
+      "destination": "https://api.yeatwork.ru/questions/public-questions/:rest*"
+    }
+  ]
+}

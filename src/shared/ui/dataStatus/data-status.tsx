@@ -1,10 +1,10 @@
 import React from "react";
-import { Skeleton } from "@/shared/ui";
+import { Skeleton, Spinner } from "@/shared/ui";
 
 type Props = {
   isLoading: boolean;
   isError: boolean;
-  variant: "list" | "details";
+  variant?: "list" | "details";
   children: React.ReactNode;
 };
 
@@ -15,11 +15,17 @@ export const DataStatus = ({
   children,
 }: Props) => {
   if (isLoading) {
-    return variant === "list" ? (
-      <Skeleton variant={variant} />
-    ) : (
-      <Skeleton variant={"details"} />
-    );
+    switch (variant) {
+      case "list": {
+        return <Skeleton variant={variant} />;
+      }
+      case "details": {
+        return <Skeleton variant="details" />;
+      }
+      default: {
+        return <Spinner />;
+      }
+    }
   }
 
   if (isError) {
