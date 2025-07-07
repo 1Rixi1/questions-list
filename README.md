@@ -1,69 +1,27 @@
-# React + TypeScript + Vite
+ТЗ: Вопросы
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vercel - https://questions-list-ior5.vercel.app/
 
-Currently, two official plugins are available:
+## Описание утилитных хуков
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### `src/shared/lib/use-query-params.ts`
 
-## Expanding the ESLint configuration
+1. React-хук для работы с параметрами в URL через `react-router-dom`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Читает текущие значения фильтров и номера страницы (`page`, `specialization`, `skills`, `rate`, `complexity`, `title`).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Возвращает:
+  - Строковые значения параметров (`page`, `specialization`, `skills`, `rate`, `complexity`, `title`)
+  - Функции для обновления каждого параметра (`setPage`, `setSpecialization`, `setSkills`, `setRate`, `setComplexity`, `setTitle`)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### `src/shared/lib/use-pagination-range.ts`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. React-хук для вычисления «диапазона» страниц в пагинации
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Принимает общее число элементов (`total`), размер страницы (`limit`) и настройку количества соседних страниц (`siblingCount`).
+  
+- Возвращает:
+  - `pages` — массив номеров страниц и на месте «скрытых» участков вставляет `"..."`,  
+  - `currentPage` — текущий номер страницы,  
+  - `totalPages` — общее число страниц.  
