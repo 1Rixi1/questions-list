@@ -4,7 +4,7 @@ Vercel - https://questions-list-ior5.vercel.app/
 
 ## Описание утилитных хуков
 
-### `src/shared/lib/use-query-params.ts`
+### `src/shared/lib/useQueryParams.ts`
 
 1. React-хук для работы с параметрами в URL через `react-router-dom`.
 
@@ -14,7 +14,7 @@ Vercel - https://questions-list-ior5.vercel.app/
   - Строковые значения параметров (`page`, `specialization`, `skills`, `rate`, `complexity`, `title`)
   - Функции для обновления каждого параметра (`setPage`, `setSpecialization`, `setSkills`, `setRate`, `setComplexity`, `setTitle`)
 
-### `src/shared/lib/use-pagination-range.ts`
+### `src/shared/lib/usePaginationRange.ts`
 
 2. React-хук для вычисления «диапазона» страниц в пагинации
 

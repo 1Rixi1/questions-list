@@ -1,2 +1,3 @@
-export { usePaginationRange } from "./use-pagination-range.ts";
-export { useQueryParams } from "./use-query-params.ts";
+export { usePaginationRange } from "./pagination/usePaginationRange";
+export { useQueryParams } from "./queryParams/useQueryParams";
+export { useOptions } from "./useOptions/useOptions";

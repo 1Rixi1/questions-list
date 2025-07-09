@@ -3,6 +3,14 @@
     {
       "source": "/questions/public-questions/:rest*",
       "destination": "https://api.yeatwork.ru/questions/public-questions/:rest*"
+    },
+    {
+      "source": "/skills/:rest*",
+      "destination": "https://api.yeatwork.ru/skills/:rest*"
+    },
+    {
+      "source": "/specializations/:rest*",
+      "destination": "https://api.yeatwork.ru/specializations/:rest*"
     }
   ]
 }

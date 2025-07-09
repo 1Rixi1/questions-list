@@ -1,1 +1,1 @@
-export { baseApi } from "./base-api.ts";
+export { baseApi } from "./baseApi.ts";

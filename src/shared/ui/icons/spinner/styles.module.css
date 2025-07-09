@@ -1,4 +1,6 @@
 .spinner {
+  margin: 20px auto;
+  display: block;
   transform-origin: center;
   animation: spinner 0.75s infinite linear;
 }

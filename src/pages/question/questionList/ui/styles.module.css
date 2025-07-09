@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 40px;
+
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    display: block;
+  }
+
+  .questions {
+    min-width: auto;
+  }
+  .container > section {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .questions {
+    padding: 20px 10px;
+  }
+}

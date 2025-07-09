@@ -1,5 +1,5 @@
-import { SkeletonList } from "@/shared/ui/skeleton/skeletonList/skeleton-list.tsx";
-import { SkeletonDetails } from "@/shared/ui/skeleton/skeletonDetails/skeleton-details.tsx";
+import { SkeletonList } from "@/shared/ui/skeleton/skeletonList/SkeletonList";
+import {SkeletonDetails} from "@/shared/ui/skeleton/skeletonDetails/SkeletonDetails";
 
 type Props = {
   variant: "list" | "details";
@@ -8,3 +8,4 @@ type Props = {
 export const Skeleton = ({ variant }: Props) => {
   return variant === "list" ? <SkeletonList /> : <SkeletonDetails />;
 };
+

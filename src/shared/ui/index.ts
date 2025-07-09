@@ -1,16 +1,22 @@
-export { Chip } from "./chip/chip.tsx";
-export { ChipSelect } from "./chipSelect/chip-select.tsx";
-export { Collapsible } from "./collapsible/ui/collapsible.tsx";
+export { Chip } from "./chip/Chip";
+export { ChipList } from "./chipList/ChipList";
+export { Collapsible } from "./collapsible/Collapsible";
 
-export { BackButton } from "./backButton/back-button.tsx";
-export { DataStatus } from "./dataStatus/data-status.tsx";
+export { BackButton } from "./backButton/BackButton";
+export { DataStatus } from "./dataStatus/DataStatus";
 
-export { MetaIcon } from "./icons/meta/meta-icon.tsx";
-export { MenuIcon } from "./icons/menu/menu-icon.tsx";
-export { FilterIcon } from "./icons/filter/filter-icon.tsx";
-export { CloseIcon } from "./icons/close/close-icon.tsx";
-export { SearchIcon } from "./icons/search/search-icon.tsx";
-export { Skeleton } from "./skeleton/Skeleton.tsx";
-export { LogoTitle } from "./icons/logoTitle/logo-title.tsx";
-export { LogoImage } from "./icons/logoImage/logo-image.tsx";
-export { Spinner } from "./icons/spinner/spinner.tsx";
+export { Skeleton } from "./skeleton/Skeleton";
+
+export { Input } from "./input/Input";
+
+export { Pagination } from "./pagination/Pagination";
+export { NotFound } from "./notFound/NotFound";
+
+export { MetaIcon } from "./icons/meta/MetaIcon";
+export { MenuIcon } from "./icons/menu/MenuIcon";
+export { FilterIcon } from "./icons/filter/FilterIcon";
+export { CloseIcon } from "./icons/close/CloseIcon";
+export { SearchIcon } from "./icons/search/SearchIcon";
+export { LogoTitle } from "./icons/logoTitle/LogoTitle";
+export { LogoImage } from "./icons/logoImage/LogoImage";
+export { Spinner } from "./icons/spinner/Spinner";
