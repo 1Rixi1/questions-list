@@ -1,6 +1,6 @@
 ТЗ: Вопросы
 
-Vercel - https://questions-list-ior5.vercel.app/
+Vercel - https://questions-list.vercel.app/
 
 ## Описание утилитных хуков
 
