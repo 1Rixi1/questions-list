@@ -45,6 +45,25 @@
   line-height: 1.3;
 }
 
+.backButton {
+  cursor: pointer;
+  position: absolute;
+  transform: translate(27px, -40px);
+}
+
+.backButton:before,
+.backButton:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -14px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #6a0bff;
+  border-right: 2px solid #6a0bff;
+  transform: rotate(-134deg);
+}
+
 .headerContent {
   position: relative;
 }

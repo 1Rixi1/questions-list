@@ -3,7 +3,7 @@ import { skipToken } from "@reduxjs/toolkit/query";
 
 import styles from "./styles.module.css";
 
-import { BackButton, DataStatus, Spinner } from "@/shared/ui";
+import { ButtonNavigate, DataStatus, Spinner } from "@/shared/ui";
 import {
   LongAnswer,
   MetaInfo,
@@ -35,7 +35,11 @@ const QuestionDetails = () => {
       <main className={styles.wrapper}>
         <article className={styles.question} aria-labelledby="question-main">
           <section className={styles.sectionMain}>
-            <BackButton />
+            <ButtonNavigate
+              className={styles.backButton}
+              title="Назад"
+              navigate="/"
+            />
             <QuestionHeader
               className={styles.sectionItem}
               title={question.title}

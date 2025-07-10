@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
-
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { CloseIcon, LogoImage, LogoTitle, MenuIcon } from "@/shared/ui";
+import {
+  ButtonNavigate,
+  CloseIcon,
+  LogoImage,
+  LogoTitle,
+  MenuIcon,
+} from "@/shared/ui";
 
 export const Header = () => {
   const [options, SetOptions] = useState(false);
@@ -16,10 +20,10 @@ export const Header = () => {
           aria-label="Лого и основная навигация"
         >
           <div className={styles.branding} aria-label="Лого и выбор раздела">
-            <Link className={styles.logo} to="/">
+            <ButtonNavigate className={styles.logo} navigate="/">
               <LogoImage />
               <LogoTitle />
-            </Link>
+            </ButtonNavigate>
             <button
               className={`${styles.btnToggle} ${options && styles.rotate}`}
               onClick={() => SetOptions(!options)}
@@ -31,8 +35,8 @@ export const Header = () => {
             className={`${styles.mainNav} ${options && styles.showMainNav}`}
             aria-label="Основная навигация"
           >
-            <Link to="/">База вопросов</Link>
-            <Link to="/trainer">Тренажер</Link>
+            <ButtonNavigate navigate="/" title="База вопросов" />
+            <ButtonNavigate navigate="/trainer" title="Тренажер" />
           </nav>
         </div>
         <MenuIcon
@@ -43,10 +47,13 @@ export const Header = () => {
           className={`${styles.authNav} ${openAuthMenu && styles.showAuthNav}`}
           aria-label="Пользовательские действия"
         >
-          <Link to="/auth">Вход</Link>
-          <Link className={styles.registration} to="/registration">
-            Регистрация
-          </Link>
+          <ButtonNavigate title="Вход" navigate="/auth" />
+          <ButtonNavigate
+            className={styles.registration}
+            title="Регистрация"
+            navigate="/registration"
+          />
+
           <CloseIcon
             className={styles.closeBtn}
             onClick={() => setOpenAuthMenu(false)}

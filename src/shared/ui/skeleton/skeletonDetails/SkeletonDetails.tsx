@@ -7,8 +7,9 @@ export const SkeletonDetails = () => {
     <div className={styles.skeleton}>
       <div className={styles.skeletonList}>
         {[
-          ...Array.from({ length: 3 }).map(() => (
+          ...Array.from({ length: 3 }).map((_, idx) => (
             <ContentLoader
+              key={idx}
               speed={2}
               viewBox="0 0 1000 350"
               preserveAspectRatio="none"

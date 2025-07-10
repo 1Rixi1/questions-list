@@ -3,8 +3,8 @@ import { useState } from "react";
 import DOMPurify from "dompurify";
 
 import cn from "classnames";
-
-import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
+import { ButtonNavigate } from "@/shared/ui";
 
 type Props = {
   title: string;
@@ -14,8 +14,6 @@ type Props = {
   rate?: number;
   complexity?: number;
 };
-
-import styles from "./styles.module.css";
 
 export const QuestionRow = ({
   title,
@@ -65,19 +63,18 @@ export const QuestionRow = ({
 
           {shortAnswer && (
             <p
-
               className={styles.shortAnswer}
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(shortAnswer),
               }}
-            >
-
-            </p>
+            ></p>
           )}
           <nav className={styles.nav}>
-            <Link className={styles.more} to={`${id}`}>
-              Подробнее
-            </Link>
+            <ButtonNavigate
+              className={styles.more}
+              title="Подробнее"
+              navigate={`${id}`}
+            />
           </nav>
         </section>
       )}

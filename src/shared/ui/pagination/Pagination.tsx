@@ -38,11 +38,13 @@ export const Pagination = ({ onChange, total, limit }: Props) => {
       </li>
 
       <ul className={styles.list}>
-        {pages.map((page) =>
+        {pages.map((page, idx) =>
           page === "..." ? (
-            <li className={styles.punctuation}>...</li>
+            <li key={`dot - ${idx}`} className={styles.punctuation}>
+              ...
+            </li>
           ) : (
-            <li key={page}>
+            <li key={`page - ${page}`}>
               <Chip
                 className={cn(
                   { [styles.pageSelected]: currentPage === page },
